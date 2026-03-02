@@ -15,7 +15,7 @@ export async function getDashboardStats() {
         .select('total_amount, total_profit')
         .gte('created_at', isoToday)
 
-    if (salesError) throw new Error(salesError.message)
+    if (salesError) throw new Error( salesError.message)
 
     const dailySales = todaySales.reduce((sum, sale) => sum + Number(sale.total_amount), 0)
     const dailyProfit = todaySales.reduce((sum, sale) => sum + Number(sale.total_profit), 0)
